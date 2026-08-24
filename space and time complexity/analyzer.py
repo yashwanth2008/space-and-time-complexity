@@ -84,10 +84,6 @@ class ComplexityAnalyzer:
 
         return self.combine_sequential(results)
 
-    # ---------------------------------------
-    # WHILE LOOP
-    # ---------------------------------------
-
     def analyze_while_loop(self, node):
 
         print("\nThere is a while-loop")
@@ -130,10 +126,6 @@ class ComplexityAnalyzer:
 
         return "O(?)"
 
-    # ---------------------------------------
-    # FOR LOOP
-    # ---------------------------------------
-
     def analyze_for_loop(self, node):
 
         print("\nThere is a for-loop")
@@ -167,10 +159,6 @@ class ComplexityAnalyzer:
 
         return loop_complexity
 
-    # ---------------------------------------
-    # FIND NESTED LOOP
-    # ---------------------------------------
-
     def find_nested_loop(self, node):
 
         for child in node.children:
@@ -190,10 +178,6 @@ class ComplexityAnalyzer:
                 return result
 
         return None
-
-    # ---------------------------------------
-    # IF / ELSE
-    # ---------------------------------------
 
     def analyze_if_statement(self, node):
 
@@ -223,10 +207,6 @@ class ComplexityAnalyzer:
         print("If/else complexity: O(1)")
 
         return "O(1)"
-
-    # ---------------------------------------
-    # GET FOR LOOP COMPLEXITY
-    # ---------------------------------------
 
     def get_loop_complexity(self, node):
 
@@ -259,10 +239,6 @@ class ComplexityAnalyzer:
 
         return "O(?)"
 
-    # ---------------------------------------
-    # MULTIPLY COMPLEXITIES
-    # ---------------------------------------
-
     def multiply_complexity(self, outer, inner):
 
         if outer == "O(n)" and inner == "O(n)":
@@ -283,9 +259,6 @@ class ComplexityAnalyzer:
 
         return f"{outer} × {inner}"
 
-    # ---------------------------------------
-    # SEQUENTIAL COMPLEXITY
-    # ---------------------------------------
 
     def combine_sequential(self, complexities):
 
@@ -302,9 +275,6 @@ class ComplexityAnalyzer:
             key=self.complexity_rank
         )
 
-    # ---------------------------------------
-    # COMPLEXITY RANK
-    # ---------------------------------------
 
     def complexity_rank(self, complexity):
 
@@ -334,21 +304,11 @@ class ComplexityAnalyzer:
 
         return 0
 
-    # ---------------------------------------
-    # GET SOURCE TEXT
-    # ---------------------------------------
-
     def get_text(self, node):
 
         return self.source_code[
             node.start_byte:node.end_byte
         ]
-
-
-# ==========================================
-# ANALYZE FILE
-# ==========================================
-
 def analyze_file(filename):
 
     with open(
